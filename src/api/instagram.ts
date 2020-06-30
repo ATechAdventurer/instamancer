@@ -780,9 +780,12 @@ export class Instagram<PostType> {
         // Browser args
         const args = [];
         /* istanbul ignore if */
-        if (process.env.NO_SANDBOX) {
+        if (process.env.NO_SANDBOX || process.env.IS_DOCKER) {
             args.push("--no-sandbox");
             args.push("--disable-setuid-sandbox");
+        }
+        if (process.env.IS_DOCKER) {
+            args.push("--disable-dev-shm-usage");
         }
         if (this.proxyURL !== undefined) {
             args.push("--proxy-server=" + this.proxyURL);
