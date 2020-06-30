@@ -21,8 +21,8 @@
         "plugins/**/*.d.ts"
     ],
     "scripts": {
-        "build": "npm install && tsc",
-        "prepack": "tsc --declaration",
+        "build": "tsc",
+        "prepack": "npm install && tsc --declaration",
         "test": "jest --env=node",
         "test:ci": "jest --forceExit --env=node",
         "lint": "tslint -p tsconfig.json -p tests/tsconfig.json",
