@@ -785,6 +785,7 @@ export class Instagram<PostType> {
             args.push("--disable-setuid-sandbox");
         }
         if (process.env.IS_DOCKER) {
+            args.push("--disable-gpu");
             args.push("--disable-dev-shm-usage");
         }
         if (this.proxyURL !== undefined) {
